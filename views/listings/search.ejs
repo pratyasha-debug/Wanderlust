@@ -1,0 +1,19 @@
+<% layout("/layouts/boilerplate") %>
+<h1>Search Results for: <%= searchQuery %></h1>
+
+<% if (searchResults.length === 0) { %>
+  <p>No results found.</p>
+<% } else { %>
+  <ul>
+    <% searchResults.forEach(result => { %>
+      <li>
+        <h3><%= result.title %></h3>
+        <p><%= result.description %></p>
+        <p><strong>Location:</strong> <%= result.location %></p>
+        <p><strong>Price:</strong> $<%= result.price %></p>
+        <p><strong>Category:</strong> <%= result.category %></p>
+        <img src="<%= result.image.url %>" alt="<%= result.title %>" width="200">
+      </li>
+    <% }) %>
+  </ul>
+<% } %>

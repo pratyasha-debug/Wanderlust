@@ -1,0 +1,71 @@
+const express = require("express");
+const router = express.Router();
+const wrapAsync = require("../utils/wrapAsync.js");
+const Listing = require("../models/listing.js");
+const {isLoggedIn, isOwner,validateListing} = require("../middleware.js");
+
+const listingController = require("../controllers/listings.js");
+const multer  = require('multer');
+const{storage} = require("../cloudConfig.js");
+const upload = multer({ storage });
+
+//Index and create route
+
+  router
+  .route("/")
+  .get(wrapAsync(listingController.index))
+  .post(
+    isLoggedIn,
+    upload.single('listing[image]'),
+    validateListing,
+    wrapAsync(listingController.createListing)
+  
+  );
+
+  router.get("/", wrapAsync(async (req, res) => {
+    const { category } = req.body.query; // Get the category from the query string
+    let filter = {};
+    if (category) {
+      filter.category = category; // Add category filter if it exists
+    }
+    
+    const allListings = await Listing.find(filter); // Assuming you have a Listing model
+    res.render("listings", { allListings });
+  }));
+
+
+  //New Route
+ 
+  router.get("/new",isLoggedIn,listingController.renderNewForm);
+
+  //show,update,delete route
+  router
+  .route("/:id")
+  .get(wrapAsync(listingController.showListing))
+  .put(
+    isLoggedIn,
+    isOwner,
+    upload.single('listing[image]'), 
+    validateListing,
+    wrapAsync(listingController.updateListing)
+  )
+  .delete( 
+    isLoggedIn,
+    isOwner,
+    wrapAsync(listingController.destroyListing)
+  );
+
+ //Edit route
+ 
+  router.get("/:id/edit",  
+     isLoggedIn ,
+     isOwner,
+      wrapAsync(listingController.renderEditForm)
+    );
+
+    
+
+
+  
+
+module. exports = router;
