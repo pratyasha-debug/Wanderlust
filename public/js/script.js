@@ -1,51 +1,64 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Ensure the taxSwitch element exists before adding event listeners
   let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+
   if (taxSwitch) {
-    taxSwitch.addEventListener("click", () => {
-      let taxInfo = document.getElementsByClassName("tax-info");
-      for (let info of taxInfo) {
-        info.style.display = info.style.display !== "inline" ? "inline" : "none";
+    let priceSpans = document.querySelectorAll(".price-amount");
+    let priceMap = new Map();
+
+    // Store base prices on page load
+    priceSpans.forEach(priceSpan => {
+      let basePrice = parseFloat(priceSpan.innerText.replace(/,/g, ""));  //Removes commas from the displayed price.//Converts the string to a number.Stores the number in priceMap with the span element as the key.
+      priceMap.set(priceSpan, basePrice);
+    });
+
+    taxSwitch.addEventListener("change", () => {
+      // Toggle tax info visibility
+      let taxInfos = document.getElementsByClassName("tax-info");
+      for (let info of taxInfos) {
+        info.style.display = taxSwitch.checked ? "inline" : "none";
       }
+
+      // Update price amounts
+      priceMap.forEach((basePrice, priceSpan) => {
+        let finalPrice = taxSwitch.checked ? (basePrice * 1.18) : basePrice;
+        let formattedPrice = finalPrice.toLocaleString("en-IN", { maximumFractionDigits: 0 });
+        priceSpan.innerText = formattedPrice;
+      });
     });
   }
 
-  // Add category filtering functionality
-  let filters = document.querySelectorAll(".filter");
 
+  // CATEGORY FILTERING FUNCTIONALITY
+  let filters = document.querySelectorAll(".filter");
   filters.forEach(filter => {
     filter.addEventListener("click", () => {
       let selectedCategory = filter.getAttribute("data-category");
 
-      // Display only the listings that match the selected category
-      let allListings = document.querySelectorAll('.listing-card');
+      // Show matching listings, hide others
+      let allListings = document.querySelectorAll(".listing-card");
       allListings.forEach(listing => {
         let listingCategory = listing.getAttribute("data-category");
-
-        // If the listing's category matches the selected one (or if the filter is empty), display it
-        if (selectedCategory === listingCategory || selectedCategory === "") {
-          listing.style.display = "block";  // Show matching listings
-        } else {
-          listing.style.display = "none";  // Hide non-matching listings
-        }
+        listing.style.display =
+          selectedCategory === listingCategory || selectedCategory === ""
+            ? "block"
+            : "none";
       });
 
-      // Mark the active filter
+      // Mark active filter
       filters.forEach(f => f.classList.remove("active"));
       filter.classList.add("active");
     });
   });
 
-  // Form validation (Bootstrap)
-  const forms = document.querySelectorAll('.needs-validation');
+  // BOOTSTRAP FORM VALIDATION FUNCTIONALITY
+  const forms = document.querySelectorAll(".needs-validation");
   Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
+    form.addEventListener("submit", event => {
       if (!form.checkValidity()) {
         event.preventDefault();
         event.stopPropagation();
       }
-      form.classList.add('was-validated');
+      form.classList.add("was-validated");
     }, false);
   });
 });
-

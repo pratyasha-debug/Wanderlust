@@ -30,16 +30,16 @@ const listingSchema = new Schema({
     type: String,
   },
 
-  reviews: [
+  reviews: [ // An array of ObjectIds.
     {
-      type: Schema.Types.ObjectId,
-      ref: "Review",
+      type: Schema.Types.ObjectId, //Each ObjectId refers to a document in the Review collection.
+      ref: "Review", //  it tells Mongoose which model to look in when we later use .populate("reviews").
     },
   ],
 
   owner: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
+    type: Schema.Types.ObjectId, //Every listing has one owner (the user who created it).
+    ref: "User", //It's a reference to the User model by ObjectId.
   },
   geometry : {
     type: {

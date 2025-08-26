@@ -11,7 +11,7 @@ async function main() {
     console.log(initData); // Logs the imported data
 
     // Initialize the database after the connection is established
-    await initDB();
+    await initDB(); // Calls the initDB function to initialize (clear + insert) the database.
   } catch (err) {
     console.log("Error connecting to DB:", err);
   }

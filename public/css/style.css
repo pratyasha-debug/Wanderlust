@@ -10,6 +10,7 @@ body{
 .container{
     flex:1;
 }
+
 /* Navbar */
 .navbar{
     height:5rem;
@@ -177,6 +178,10 @@ body{
     align-items: center;
     flex-shrink: 0; /* Prevent shrinking on smaller screens */
   }
+  .tax-info {
+    display: none;
+  }
+  
   
   .filter.active {
     opacity: 1;
