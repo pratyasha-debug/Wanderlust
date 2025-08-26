@@ -1,86 +1,117 @@
-# AI-Powered Real-Time Chat App (MERN Stack)
+# Wanderlust
 
-In this project, we build a **real-time chat application** using the **MERN stack**, enhanced with **AI support from Google Gemini**, and optimized with **Redis caching** for performance. The app uses **Socket.io** for smooth real-time communication.
+A full-stack travel web application built with JavaScript, EJS, CSS, and Node.js. Explore destinations, plan trips, and manage travel ideas with ease.
+
+**Live Demo:** [https://wanderlust-53xw.onrender.com](https://wanderlust-53xw.onrender.com)
+
+---
+
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the App](#running-the-app)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Overview
+Wanderlust is a travel-themed web app that allows users to explore destinations, plan trips, and manage travel ideas. The app uses server-side rendering with EJS templates and allows smooth navigation across views.
 
 ---
 
 ## Features
-
-- Real-time messaging between users.
-- AI-powered chat responses using **Google Gemini**.
-- Redis caching for improved performance.
-- User authentication with JWT.
-- Responsive and modern UI.
+- Interactive pages for destinations, itineraries, and user submissions
+- RESTful routes using Express.js
+- Modular server logic with `controllers`, `routes`, and `utils`
+- Responsive UI using EJS and CSS
+- Secure cloud-based storage (configured via `cloudConfig.js`)
 
 ---
 
 ## Tech Stack
-
-- **Frontend:** React.js
-- **Backend:** Node.js + Express
-- **Database:** MongoDB
-- **Cache:** Redis
-- **Real-time communication:** Socket.io
-- **AI integration:** Google Gemini API
-- **Authentication:** JWT
+- **Backend:** Node.js, Express.js
+- **Templating:** EJS
+- **Frontend:** HTML, CSS
+- **Database:** (e.g., MongoDB) — if used, mention here
+- **Cloud:** Configuration via `cloudConfig.js`
 
 ---
 
-## Installation
+## Getting Started
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/pratyasha-debug/AI-Developer.git
-   cd AI-Developer
-   2. Install and Setup Services
-MongoDB
+### Prerequisites
+- Node.js (v14+ recommended)
+- Git
 
-Local: Download MongoDB
- and start:
+### Installation
+1. Clone the repository:
 
-mongod
+```bash
+git clone https://github.com/pratyasha-debug/Wanderlust.git
+Navigate into the project directory:
 
-
-Cloud (optional): Use MongoDB Atlas
- and update MONGODB_URI in .env.
-
-Redis
-
-Local: Download Redis
- and start:
-
-redis-server
+cd Wanderlust
 
 
-Cloud (optional): Use Redis Cloud credentials in .env.
+Install dependencies:
 
-Socket.io
-
-Already included in npm install. No extra setup needed.
-
-Google Gemini (AI)
-
-Get an API key from Google Cloud AI
- and set it in .env as GOOGLE_AI_KEY.
-cd backend
 npm install
-cd ../frontend
-npm install
+
 Running the App
 
-Start the backend server:-
-cd backend
-npm start
-Start the frontend:-
-cd frontend
-npm run dev 
+Start the server:
 
-###Acknowledgements
+node app.js
 
-MongoDB
 
-Redis
+Then open your browser and go to: http://localhost:3000
 
-Socket.io
+Folder Structure
+Wanderlust/
+│
+├── controllers/     # Route logic and request handling
+├── models/          # Database schema and data models
+├── routes/          # Express route definitions
+├── utils/           # Utility functions/helpers
+├── views/           # EJS templates for rendering UI
+├── public/          # Static assets (CSS, images, JS)
+├── app.js           # App entry point
+├── cloudConfig.js   # Cloud storage setup/config
+├── middleware.js    # Custom middlewares
+├── schema.js        # Database schema definitions
+├── package.json     # Project metadata & dependencies
+└── .gitignore       # Files/folders to ignore in Git
 
-Google Gemini   Make it perfect
+Contributing
+
+Fork the repository
+
+Create a feature branch:
+
+git checkout -b feature-name
+
+
+Make your changes and commit:
+
+git commit -m "Add feature"
+
+
+Push to your branch and open a Pull Request (PR).
+
+License
+
+This project is licensed under the MIT License. Feel free to modify and share!
+
+
+---
+
+If you want, I can also **make a separate README version for your AI-Powered Real-Time Chat App** using MERN + Redis + Google Gemini, similar to this format.  
+
+Do you want me to do that?
+
