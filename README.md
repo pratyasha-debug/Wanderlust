@@ -1,89 +1,86 @@
-AI-Powered Real-Time Chat App (MERN Stack)
+# AI-Powered Real-Time Chat App (MERN Stack)
 
-This project is a real-time chat application built with the MERN stack, enhanced with AI support from Google Gemini, and optimized with Redis caching for better performance. Real-time communication is powered by Socket.io.
+In this project, we build a **real-time chat application** using the **MERN stack**, enhanced with **AI support from Google Gemini**, and optimized with **Redis caching** for performance. The app uses **Socket.io** for smooth real-time communication.
 
-Features
+---
 
-Real-time messaging between users.
+## Features
 
-AI-powered chat responses using Google Gemini.
+- Real-time messaging between users.
+- AI-powered chat responses using **Google Gemini**.
+- Redis caching for improved performance.
+- User authentication with JWT.
+- Responsive and modern UI.
 
-Redis caching for fast performance.
+---
 
-User authentication with JWT.
+## Tech Stack
 
-Responsive and modern user interface.
+- **Frontend:** React.js
+- **Backend:** Node.js + Express
+- **Database:** MongoDB
+- **Cache:** Redis
+- **Real-time communication:** Socket.io
+- **AI integration:** Google Gemini API
+- **Authentication:** JWT
 
-Tech Stack
+---
 
-Frontend: React.js
+## Installation
 
-Backend: Node.js + Express
-
-Database: MongoDB
-
-Cache: Redis
-
-Real-time communication: Socket.io
-
-AI integration: Google Gemini API
-
-Authentication: JWT
-
-Installation & Setup
-1. Clone the repository
-git clone https://github.com/pratyasha-debug/AI-Developer.git
-cd AI-Developer
-
-2. Install dependencies
-Backend
-cd backend
-npm install
-
-Frontend
-cd ../frontend
-npm install
-
-3. Setup Services
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/pratyasha-debug/AI-Developer.git
+   cd AI-Developer
+   2. Install and Setup Services
 MongoDB
 
-Local: Download and start MongoDB:
+Local: Download MongoDB
+ and start:
 
 mongod
 
 
-Cloud (optional): Use MongoDB Atlas and update MONGODB_URI in .env.
+Cloud (optional): Use MongoDB Atlas
+ and update MONGODB_URI in .env.
 
 Redis
 
-Local: Download and start Redis:
+Local: Download Redis
+ and start:
 
 redis-server
 
 
 Cloud (optional): Use Redis Cloud credentials in .env.
 
+Socket.io
+
+Already included in npm install. No extra setup needed.
+
 Google Gemini (AI)
 
-Get an API key from Google Cloud AI and set it in .env as:
+Get an API key from Google Cloud AI
+ and set it in .env as GOOGLE_AI_KEY.
+cd backend
+npm install
+cd ../frontend
+npm install
+Running the App
 
-GOOGLE_AI_KEY=your_api_key_here
-
-4. Running the App
-Backend
+Start the backend server:-
 cd backend
 npm start
-
-Frontend
+Start the frontend:-
 cd frontend
-npm run dev
+npm run dev 
 
-Acknowledgements
+###Acknowledgements
 
-MongoDB – Database
+MongoDB
 
-Redis – Caching & performance
+Redis
 
-Socket.io – Real-time communication
+Socket.io
 
-Google Gemini – AI integration
+Google Gemini   Make it perfect
